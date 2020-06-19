@@ -6,8 +6,7 @@ if len(sys.argv)==1:
     st="in.txt"
 else:
     st=sys.argv[1]
-#j=os.getenv(str(sys.argv[1]))
-#giprint(j) доделать чтобы можно было и как модуль и как скрипт написать
+
 try:
     with open(st) as f:
         link = f.readline().strip()
@@ -24,7 +23,3 @@ try:
 except Exception as err:
     print(err)
 
-
-
-#cnt = Counter(x for x in re.findall(r'[A-z\']{2,}', txt))
-#print(cnt.most_common(10))
