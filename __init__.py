@@ -1,7 +1,9 @@
 import requests
 from collections import Counter
-import re, sys
+import re, sys, os
 print(sys.argv[1])
+#j=os.getenv(str(sys.argv[1]))
+#giprint(j)
 try:
     with open(sys.argv[1]) as f:
         link = f.readline().strip()
@@ -10,7 +12,7 @@ try:
             if html.status_code == 200:
                 print('Connecting.. ОК')
             #print(html.text)
-                cnt = Counter(x for x in re.findall(r'[A-z\']{2,}', html.text))
+                cnt = Counter(x for x in re.findall(r'[a-zA-Zа-яА-ЯёЁ\']{2,}', html.text))
                 print(cnt.most_common(10))
             else:
                 print('Connecting.. Error')
