@@ -1,11 +1,15 @@
 import requests
 from collections import Counter
 import re, sys, os
-print(sys.argv[1])
+print(len(sys.argv))
+if len(sys.argv)==1:
+    st="in.txt"
+else:
+    st=sys.argv[1]
 #j=os.getenv(str(sys.argv[1]))
-#giprint(j)
+#giprint(j) доделать чтобы можно было и как модуль и как скрипт написать
 try:
-    with open(sys.argv[1]) as f:
+    with open(st) as f:
         link = f.readline().strip()
         while link:
             html = requests.get(link, verify=False)
